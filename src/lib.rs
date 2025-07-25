@@ -42,7 +42,7 @@ use vulkano::{
     render_pass::Subpass,
 };
 
-pub struct Texture {
+struct Texture {
     image: Arc<Image>,
     set: Arc<DescriptorSet>,
 }
@@ -453,7 +453,7 @@ impl Renderer {
 
 #[repr(C)]
 #[derive(Debug, Clone, Copy, Default, BufferContents, Vertex)]
-pub struct ImguiVertex {
+struct ImguiVertex {
     #[format(R32G32_SFLOAT)]
     pub position: [f32; 2],
     #[format(R32G32_SFLOAT)]
