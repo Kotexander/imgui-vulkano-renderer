@@ -281,7 +281,10 @@ impl Renderer {
         imgui: &mut imgui::Context,
         builder: &mut AutoCommandBufferBuilder<L>,
     ) {
-        imgui.set_renderer_name("vulkano".to_owned());
+        imgui.set_renderer_name(format!(
+            "imgui-vulkano-renderer {}",
+            env!("CARGO_PKG_VERSION")
+        ));
         imgui.io_mut().backend_flags |= BackendFlags::RENDERER_HAS_VTX_OFFSET;
         self.reload_font_texture(imgui, builder);
     }
